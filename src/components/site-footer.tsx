@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import SlideTextButton from "@/components/kokonutui/slide-text-button";
+import NewsletterForm from "@/components/newsletter-form";
 
 const siteLinks = [
   { href: "/products", label: "Shop" },
@@ -211,33 +211,7 @@ export function SiteFooter() {
               ))}
             </ul>
 
-            <form className="site-footer__newsletter" action="#" method="post">
-              <label
-                className="site-footer__newsletter-label"
-                htmlFor="footer-email"
-              >
-                Newsletter
-              </label>
-              <div className="site-footer__newsletter-row">
-                <input
-                  id="footer-email"
-                  name="email"
-                  type="email"
-                  required
-                  autoComplete="email"
-                  placeholder="you@email.com"
-                  className="site-footer__newsletter-input"
-                />
-                <SlideTextButton
-                  as="button"
-                  type="submit"
-                  text="Subscribe"
-                  hoverText="Join"
-                  animateIn={false}
-                  className="site-footer__newsletter-btn content-panel__btn content-panel__btn--dark h-10 min-w-0 px-5 text-sm md:min-w-0"
-                />
-              </div>
-            </form>
+            <NewsletterForm />
           </div>
         </div>
 

@@ -1,1 +1,0 @@
-{"data":{"exitCode":0,"hasWorker":true,"buildScript":"opennextjs-cloudflare build -\u003e npm run build:next","hasCfg":true},"hypothesisId":"G2","message":"CI-compatible npm run build produces OpenNext output without recursion","runId":"verify-ci-build-script","sessionId":"fbe3cd","timestamp":1794407975188,"location":"npm-run-build"}

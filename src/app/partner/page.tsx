@@ -1,33 +1,6 @@
-"use client";
-
-import Link from "next/link";
-import { useState, type FormEvent } from "react";
+import PartnerForm from "@/app/partner/partner-form";
 
 export default function PartnerPage() {
-  const [submitted, setSubmitted] = useState(false);
-
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    setSubmitted(true);
-  }
-
-  if (submitted) {
-    return (
-      <div className="page">
-        <section className="panel partner-success">
-          <h1>Anfrage gesendet</h1>
-          <p>
-            Danke — wir melden uns bei dir. Aktuell ist das nur die Formular-UI;
-            Speicherung und Versand kommen mit dem Backend.
-          </p>
-          <Link href="/" className="btn btn-primary" style={{ marginTop: "1rem" }}>
-            Zur Startseite
-          </Link>
-        </section>
-      </div>
-    );
-  }
-
   return (
     <div className="page">
       <section className="partner-layout">
@@ -45,51 +18,7 @@ export default function PartnerPage() {
           </ul>
         </div>
 
-        <form className="panel form-grid" onSubmit={handleSubmit}>
-          <label>
-            Name
-            <input name="name" required placeholder="Alex Beispiel" autoComplete="name" />
-          </label>
-          <label>
-            E-Mail
-            <input
-              name="email"
-              type="email"
-              required
-              placeholder="alex@example.com"
-              autoComplete="email"
-            />
-          </label>
-          <label>
-            Interesse
-            <select name="interest" required defaultValue="affiliate">
-              <option value="affiliate">Affiliate / Referral</option>
-              <option value="community">Community / Discord</option>
-              <option value="content">Content / Social</option>
-              <option value="other">Sonstiges</option>
-            </select>
-          </label>
-          <label>
-            Discord / Telegram{" "}
-            <span className="empty">(optional)</span>
-            <input name="handle" placeholder="@username" />
-          </label>
-          <label>
-            Nachricht
-            <textarea
-              name="message"
-              required
-              rows={5}
-              placeholder="Kurz: Wer bist du, und wie stellst du dir die Partnerschaft vor?"
-            />
-          </label>
-          <button type="submit" className="btn btn-primary">
-            Anfrage senden
-          </button>
-          <p className="empty" style={{ margin: 0, fontSize: "0.85rem" }}>
-            Nur UI — noch keine Speicherung oder E-Mail.
-          </p>
-        </form>
+        <PartnerForm />
       </section>
     </div>
   );

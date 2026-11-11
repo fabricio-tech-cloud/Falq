@@ -23,5 +23,14 @@
 		// Enable image optimization
 		// see https://opennext.js.org/cloudflare/howtos/image
 		"binding": "IMAGES"
-	}
+	},
+	"d1_databases": [
+		{
+			"binding": "falq_db",
+			"database_name": "falq-db",
+			"database_id": "c25e2c08-e9cb-4fd1-9413-adc9c915750d",
+			"migrations_dir": "migrations",
+			"remote": true
+		}
+	]
 }
