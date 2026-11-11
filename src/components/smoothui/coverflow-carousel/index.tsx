@@ -174,8 +174,16 @@ const CoverflowCarousel = ({
         style={{ transformStyle: "preserve-3d" }}
       >
         {items.map((item, i) => {
-          const offset = i - activeIndex;
-          const isVisible = Math.abs(offset) <= MAX_VISIBLE_OFFSET;
+          let offset = i - activeIndex;
+          let maxOffset = MAX_VISIBLE_OFFSET;
+          if (loop && total > 1) {
+            offset = ((offset % total) + total) % total;
+            if (offset > total / 2) {
+              offset -= total;
+            }
+            maxOffset = Math.min(maxOffset, Math.floor((total - 1) / 2));
+          }
+          const isVisible = Math.abs(offset) <= maxOffset;
           const isActive = offset === 0;
 
           if (!isVisible) {
