@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-label="FALQ Pulse">
+  <rect width="400" height="400" fill="#1f1f1f"/>
+  <rect x="28" y="28" width="344" height="344" rx="28" fill="#262626" stroke="#3a3a3a" stroke-width="2"/>
+  <polyline points="72,220 120,220 148,140 176,260 210,120 244,240 278,180 328,180" fill="none" stroke="#F25623" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <line x1="72" y1="280" x2="328" y2="280" stroke="#3a3a3a" stroke-width="2"/>
+  <text x="200" y="318" text-anchor="middle" fill="#DEDEDE" font-family="Syne, Figtree, sans-serif" font-size="24" font-weight="700">PULSE</text>
+</svg>

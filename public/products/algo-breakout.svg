@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-label="FALQ Breakout">
+  <rect width="400" height="400" fill="#1f1f1f"/>
+  <rect x="28" y="28" width="344" height="344" rx="28" fill="#262626" stroke="#3a3a3a" stroke-width="2"/>
+  <line x1="80" y1="210" x2="230" y2="210" stroke="#3a3a3a" stroke-width="4"/>
+  <polyline points="80,230 120,225 160,235 200,220 230,210 270,140 320,100" fill="none" stroke="#F25623" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <polygon points="308,92 330,118 300,112" fill="#F25623"/>
+  <text x="200" y="318" text-anchor="middle" fill="#DEDEDE" font-family="Syne, Figtree, sans-serif" font-size="22" font-weight="700">BREAKOUT</text>
+</svg>

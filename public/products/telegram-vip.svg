@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-label="Telegram VIP">
+  <rect width="400" height="400" fill="#1f1f1f"/>
+  <rect x="28" y="28" width="344" height="344" rx="28" fill="#262626" stroke="#3a3a3a" stroke-width="2"/>
+  <circle cx="200" cy="168" r="64" fill="#2a2a2a" stroke="#F25623" stroke-width="3"/>
+  <path d="M164 170l72-30c6-3 12 1 10 9l-12 56c-1 6-5 7-10 5l-20-15-10 10c-3 3-5 2-7-1l-2-18-21-10c-6-3-5-9 0-6z" fill="#DEDEDE"/>
+  <text x="200" y="288" text-anchor="middle" fill="#DEDEDE" font-family="Syne, Figtree, sans-serif" font-size="20" font-weight="700">TELEGRAM VIP</text>
+  <text x="200" y="318" text-anchor="middle" fill="#F25623" font-family="Figtree, sans-serif" font-size="13" letter-spacing="3">CHANNEL ACCESS</text>
+</svg>

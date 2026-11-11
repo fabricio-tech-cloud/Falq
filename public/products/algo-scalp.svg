@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-label="FALQ Scalp">
+  <rect width="400" height="400" fill="#1f1f1f"/>
+  <rect x="28" y="28" width="344" height="344" rx="28" fill="#262626" stroke="#3a3a3a" stroke-width="2"/>
+  <polyline points="80,240 110,180 140,220 170,150 200,200 230,130 260,190 290,120 320,160" fill="none" stroke="#DEDEDE" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="170" cy="150" r="6" fill="#F25623"/>
+  <circle cx="230" cy="130" r="6" fill="#F25623"/>
+  <circle cx="290" cy="120" r="6" fill="#F25623"/>
+  <text x="200" y="318" text-anchor="middle" fill="#DEDEDE" font-family="Syne, Figtree, sans-serif" font-size="24" font-weight="700">SCALP</text>
+</svg>
