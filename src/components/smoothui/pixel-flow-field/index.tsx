@@ -197,7 +197,7 @@ const valueNoise = (x: number, y: number) => {
 const resolveCssColors = (inputs: string[], host: HTMLElement): Rgba[] => {
   const probe = document.createElement("span");
   probe.style.display = "none";
-  host.append(probe);
+  host.appendChild(probe);
 
   const canvas = document.createElement("canvas");
   canvas.width = 1;

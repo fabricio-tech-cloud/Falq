@@ -4,13 +4,19 @@ import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import {
   MANAGER_SESSION_COOKIE,
-  createManagerSessionToken,
-  verifyManagerCredentials,
+  createStaffSessionToken,
+  verifyStaffCredentials,
 } from "@/lib/manager-auth";
 
 export type LoginState = {
   error?: string;
 };
+
+function safeNextPath(value: FormDataEntryValue | null) {
+  const next = String(value ?? "").trim();
+  if (!next.startsWith("/") || next.startsWith("//")) return "/manager";
+  return next;
+}
 
 export async function loginManager(
   _prev: LoginState,
@@ -18,13 +24,14 @@ export async function loginManager(
 ): Promise<LoginState> {
   const username = String(formData.get("username") ?? "");
   const password = String(formData.get("password") ?? "");
+  const role = await verifyStaffCredentials(username, password);
 
-  if (!verifyManagerCredentials(username, password)) {
+  if (!role) {
     return { error: "Zugangsdaten stimmen nicht." };
   }
 
   const jar = await cookies();
-  jar.set(MANAGER_SESSION_COOKIE, await createManagerSessionToken(), {
+  jar.set(MANAGER_SESSION_COOKIE, await createStaffSessionToken(role), {
     httpOnly: true,
     sameSite: "lax",
     secure: process.env.NODE_ENV === "production",
@@ -32,11 +39,11 @@ export async function loginManager(
     maxAge: 60 * 60 * 24 * 14,
   });
 
-  redirect("/manager");
+  redirect(safeNextPath(formData.get("next")));
 }
 
 export async function logoutManager() {
   const jar = await cookies();
   jar.delete(MANAGER_SESSION_COOKIE);
-  redirect("/login");
+  redirect("/partner");
 }

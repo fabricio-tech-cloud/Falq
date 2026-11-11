@@ -8,6 +8,8 @@ interface __BaseEnv_CloudflareEnv {
 	NEXTJS_ENV: string;
 	MANAGER_USER: string;
 	MANAGER_PASSWORD: string;
+	MANAGER_USER_2: string;
+	MANAGER_PASSWORD_2: string;
 	MANAGER_SESSION_SECRET: string;
 	WORKER_SELF_REFERENCE: Service<typeof import("./.open-next/worker").default>;
 }
@@ -22,7 +24,7 @@ type StringifyValues<EnvType extends Record<string, unknown>> = {
 	[Binding in keyof EnvType]: EnvType[Binding] extends string ? EnvType[Binding] : string;
 };
 declare namespace NodeJS {
-	interface ProcessEnv extends StringifyValues<Pick<Cloudflare.Env, "NEXTJS_ENV" | "MANAGER_USER" | "MANAGER_PASSWORD" | "MANAGER_SESSION_SECRET">> {}
+	interface ProcessEnv extends StringifyValues<Pick<Cloudflare.Env, "NEXTJS_ENV" | "MANAGER_USER" | "MANAGER_PASSWORD" | "MANAGER_USER_2" | "MANAGER_PASSWORD_2" | "MANAGER_SESSION_SECRET">> {}
 }
 declare module "*.txt" {
 	const value: string;

@@ -1,4 +1,5 @@
 import { desc } from "drizzle-orm";
+import { cookies } from "next/headers";
 import { logoutManager } from "@/app/login/actions";
 import {
   updateOrderStatus,
@@ -6,6 +7,11 @@ import {
 } from "@/app/manager/actions";
 import { getDb } from "@/lib/db";
 import { orders, partnerApplications } from "@/lib/db/schema";
+import {
+  MANAGER_SESSION_COOKIE,
+  getStaffSessionFromToken,
+  staffRoleLabel,
+} from "@/lib/manager-auth";
 import { formatPrice } from "@/lib/products";
 
 export const dynamic = "force-dynamic";
@@ -22,6 +28,10 @@ function formatWhen(iso: string) {
 }
 
 export default async function ManagerPage() {
+  const jar = await cookies();
+  const session = await getStaffSessionFromToken(
+    jar.get(MANAGER_SESSION_COOKIE)?.value
+  );
   const db = getDb();
   const [partners, orderRows] = await Promise.all([
     db
@@ -37,9 +47,10 @@ export default async function ManagerPage() {
       <section className="manager-shell">
         <div className="manager-shell__head">
           <div>
-            <h1 style={{ marginTop: 0 }}>Manager Dashboard</h1>
+            <h1 style={{ marginTop: 0 }}>Team Dashboard</h1>
             <p className="empty" style={{ margin: 0 }}>
-              Partner-Anfragen und Bestellungen aus D1.
+              Angemeldet als {staffRoleLabel(session?.role)} · Partner-Anfragen
+              und Bestellungen aus D1.
             </p>
           </div>
           <form action={logoutManager}>

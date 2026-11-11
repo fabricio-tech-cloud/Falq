@@ -487,17 +487,18 @@ input {
   min-height: 9.5rem;
   max-height: 13.5rem;
   border-radius: 0;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center;
   background: transparent;
 }
 
 .content-panel--light .content-panel__mockup {
+  object-fit: cover;
   background: var(--gray-light);
 }
 
 .content-panel--dark .content-panel__mockup {
-  background: var(--gray);
+  background: transparent;
 }
 
 .content-panel__body {
@@ -1086,6 +1087,11 @@ input {
   gap: 1rem;
 }
 
+.partner-panels {
+  display: grid;
+  gap: 1.25rem;
+}
+
 .partner-points {
   margin: 0;
   padding-left: 1.15rem;
@@ -1097,6 +1103,11 @@ input {
 
 .partner-success {
   max-width: 560px;
+}
+
+.partner-staff-login {
+  display: grid;
+  gap: 1rem;
 }
 
 .manager-shell {

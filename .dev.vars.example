@@ -1,4 +1,6 @@
 NEXTJS_ENV=development
 MANAGER_USER=falq
 MANAGER_PASSWORD=changeme
+MANAGER_USER_2=falq2
+MANAGER_PASSWORD_2=changeme
 MANAGER_SESSION_SECRET=replace-with-a-long-random-string

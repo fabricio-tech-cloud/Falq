@@ -70,10 +70,10 @@ export function ChannelsSection() {
             </div>
             <div className="content-panel__media content-panel__media--right">
               <Image
-                src="/brand/telegram-mockup.png"
+                src="/brand/telegram-mockup-v2.png"
                 alt="FALQ Telegram"
-                width={1024}
-                height={767}
+                width={875}
+                height={764}
                 className="content-panel__mockup"
               />
             </div>

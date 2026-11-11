@@ -1,4 +1,5 @@
 import PartnerForm from "@/app/partner/partner-form";
+import PartnerStaffLogin from "@/app/partner/partner-staff-login";
 
 export default function PartnerPage() {
   return (
@@ -14,11 +15,14 @@ export default function PartnerPage() {
           <ul className="partner-points">
             <li>Zugang zu Partner-Material und Kampagnen</li>
             <li>Klare Konditionen, sobald wir passen</li>
-            <li>Direkter Draht zum Team — kein öffentliches Dashboard</li>
+            <li>Direkter Draht zum Team — Partner sehen kein öffentliches Dashboard</li>
           </ul>
         </div>
 
-        <PartnerForm />
+        <div className="partner-panels">
+          <PartnerForm />
+          <PartnerStaffLogin />
+        </div>
       </section>
     </div>
   );
