@@ -26,11 +26,12 @@
 	},
 	"d1_databases": [
 		{
+			// Local `next dev` uses Miniflare D1. Production Worker still binds the real falq-db.
+			// `remote: true` was leaving env.falq_db undefined locally (TypeError on prepare).
 			"binding": "falq_db",
 			"database_name": "falq-db",
 			"database_id": "c25e2c08-e9cb-4fd1-9413-adc9c915750d",
-			"migrations_dir": "migrations",
-			"remote": true
+			"migrations_dir": "migrations"
 		}
 	]
 }

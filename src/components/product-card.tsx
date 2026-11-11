@@ -9,15 +9,10 @@ import SlideTextButton from "@/components/kokonutui/slide-text-button";
 import { useCart } from "@/context/cart-context";
 import type { Product } from "@/lib/types";
 import { formatPrice } from "@/lib/products";
+import { cn } from "@/lib/utils";
 
 const FLOW_COLORS = ["#3a3a3a", "var(--accent)", "#ff7a45"] as const;
 const BRAND_LETTERS = ["F", "A", "L", "Q"] as const;
-const CARD_HEIGHTS: Record<1 | 2 | 3 | 4, string> = {
-  1: "22.5rem",
-  2: "25.5rem",
-  3: "28.5rem",
-  4: "32rem",
-};
 
 const GENERATION_SHAPES: Record<1 | 2 | 3 | 4, PixelFlowFieldShape> = {
   1: "square",
@@ -29,9 +24,11 @@ const GENERATION_SHAPES: Record<1 | 2 | 3 | 4, PixelFlowFieldShape> = {
 export function ProductCard({
   product,
   generation = 1,
+  className,
 }: {
   product: Product;
   generation?: 1 | 2 | 3 | 4;
+  className?: string;
 }) {
   const { addItem } = useCart();
   const [justAdded, setJustAdded] = useState(false);
@@ -50,8 +47,10 @@ export function ProductCard({
 
   return (
     <article
-      className={`product-card product-card--gen-${generation}`}
-      style={{ height: CARD_HEIGHTS[generation], minHeight: CARD_HEIGHTS[generation] }}
+      className={cn(
+        `product-card product-card--gen-${generation}`,
+        className
+      )}
     >
       <div className="product-card__surface">
         <PixelFlowField

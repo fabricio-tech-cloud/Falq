@@ -2,6 +2,26 @@ import Image from "next/image";
 import SlideTextButton from "@/components/kokonutui/slide-text-button";
 import { formatPrice, getProduct } from "@/lib/products";
 
+function ChannelBuyButton({
+  href,
+  variant,
+  className,
+}: {
+  href: string;
+  variant: "light" | "dark";
+  className?: string;
+}) {
+  return (
+    <SlideTextButton
+      text="Kaufen"
+      hoverText="Zum Produkt"
+      href={href}
+      animateIn={false}
+      className={`content-panel__btn content-panel__btn--${variant} h-10 min-w-0 px-5 text-sm md:min-w-0 ${className ?? ""}`.trim()}
+    />
+  );
+}
+
 export function ChannelsSection() {
   const discordVip = getProduct("discord-vip");
   const telegramVip = getProduct("telegram-vip");
@@ -26,31 +46,48 @@ export function ChannelsSection() {
                 {discordVip?.description ??
                   "Zugang zu den VIP-Räumen auf Discord: tiefere Setups, Chart-Talk und Priority-Channels."}
               </p>
-              <div className="content-panel__actions">
-                <SlideTextButton
-                  text="Kaufen"
-                  hoverText="Zum Produkt"
+              <div className="content-panel__actions content-panel__actions--in-panel">
+                <ChannelBuyButton
                   href="/products/discord-vip"
-                  animateIn={false}
-                  className="content-panel__btn content-panel__btn--light h-10 min-w-0 px-5 text-sm md:min-w-0"
+                  variant="light"
                 />
               </div>
             </div>
           </div>
-          <aside className="panel-aside panel-aside--right" aria-label="Discord VIP Preis">
-            <p className="panel-aside__label">Discord VIP</p>
-            <p className="panel-aside__price">
-              {discordVip ? formatPrice(discordVip.priceCents) : "—"}
-            </p>
-          </aside>
+          <div className="panel-section__meta">
+            <aside
+              className="panel-aside panel-aside--right"
+              aria-label="Discord VIP Preis"
+            >
+              <p className="panel-aside__label">Discord VIP</p>
+              <p className="panel-aside__price">
+                {discordVip ? formatPrice(discordVip.priceCents) : "—"}
+              </p>
+            </aside>
+            <div className="content-panel__actions content-panel__actions--bar">
+              <ChannelBuyButton href="/products/discord-vip" variant="dark" />
+            </div>
+          </div>
         </div>
+
         <div className="panel-section__row panel-section__row--right">
-          <aside className="panel-aside panel-aside--left" aria-label="Telegram VIP Preis">
-            <p className="panel-aside__label">Telegram VIP</p>
-            <p className="panel-aside__price">
-              {telegramVip ? formatPrice(telegramVip.priceCents) : "—"}
-            </p>
-          </aside>
+          <div className="panel-section__meta">
+            <aside
+              className="panel-aside panel-aside--left"
+              aria-label="Telegram VIP Preis"
+            >
+              <p className="panel-aside__label">Telegram VIP</p>
+              <p className="panel-aside__price">
+                {telegramVip ? formatPrice(telegramVip.priceCents) : "—"}
+              </p>
+            </aside>
+            <div className="content-panel__actions content-panel__actions--bar">
+              <ChannelBuyButton
+                href="/products/telegram-vip"
+                variant="dark"
+              />
+            </div>
+          </div>
           <div className="content-panel content-panel--dark">
             <div className="content-panel__body">
               <h2 className="content-panel__title">Telegram</h2>
@@ -58,13 +95,10 @@ export function ChannelsSection() {
                 {telegramVip?.description ??
                   "Premium-Alerts und kompakte Insights direkt aufs Handy — VIP-Feed mit priorisierten Signalen."}
               </p>
-              <div className="content-panel__actions">
-                <SlideTextButton
-                  text="Kaufen"
-                  hoverText="Zum Produkt"
+              <div className="content-panel__actions content-panel__actions--in-panel">
+                <ChannelBuyButton
                   href="/products/telegram-vip"
-                  animateIn={false}
-                  className="content-panel__btn content-panel__btn--dark h-10 min-w-0 px-5 text-sm md:min-w-0"
+                  variant="dark"
                 />
               </div>
             </div>

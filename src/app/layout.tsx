@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Figtree, Syne } from "next/font/google";
 import { Providers } from "@/components/providers";
 import { SiteFooter } from "@/components/site-footer";
@@ -19,6 +19,12 @@ const figtree = Figtree({
 export const metadata: Metadata = {
   title: "FALQ Shop",
   description: "VIP-Channels und Algorithmen — digitaler Zugang, Warenkorb und Checkout-UI",
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

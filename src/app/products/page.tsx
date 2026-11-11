@@ -1,3 +1,4 @@
+import { AlgorithmsCoverflow } from "@/components/algorithms-coverflow";
 import { ChannelsSection } from "@/components/channels-section";
 import { ProductCard } from "@/components/product-card";
 import DotField from "@/components/kokonutui/dot-field";
@@ -51,6 +52,7 @@ export default function ProductsPage() {
               />
             ))}
           </div>
+          <AlgorithmsCoverflow products={algorithms} />
         </div>
       </section>
 

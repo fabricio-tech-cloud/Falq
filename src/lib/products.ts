@@ -6,7 +6,7 @@ export const products: Product[] = [
     name: "Discord VIP Access",
     description:
       "Zugang zu den VIP-Räumen auf Discord: tiefere Setups, Chart-Talk und Priority-Channels der FALQ Community.",
-    priceCents: 4900,
+    priceCents: 999,
     category: "Channels",
     kind: "channel",
     image: "/products/discord-vip.svg",
@@ -17,7 +17,7 @@ export const products: Product[] = [
     name: "Telegram VIP Access",
     description:
       "Premium-Alerts und kompakte Insights direkt aufs Handy — VIP-Feed mit priorisierten Signalen.",
-    priceCents: 4900,
+    priceCents: 999,
     category: "Channels",
     kind: "channel",
     image: "/products/telegram-vip.svg",
@@ -28,7 +28,7 @@ export const products: Product[] = [
     name: "FALQ Pulse",
     description:
       "Momentum-Algorithmus für Trendsignale. Live-Insights und klare Entry-/Exit-Logik für aktive Märkte.",
-    priceCents: 12900,
+    priceCents: 49900,
     category: "Algorithmen",
     kind: "algorithm",
     image: "/products/algo-pulse.svg",
@@ -39,7 +39,7 @@ export const products: Product[] = [
     name: "FALQ Range",
     description:
       "Mean-Reversion-Algorithmus für Range-Märkte. Erkennung von Überkauf/-verkauf mit strukturierten Levels.",
-    priceCents: 12900,
+    priceCents: 79900,
     category: "Algorithmen",
     kind: "algorithm",
     image: "/products/algo-range.svg",
@@ -50,7 +50,7 @@ export const products: Product[] = [
     name: "FALQ Breakout",
     description:
       "Breakout-Algorithmus für Volatilitätsphasen. Filtert Scheinausbrüche und markiert valide Expansionen.",
-    priceCents: 14900,
+    priceCents: 129900,
     category: "Algorithmen",
     kind: "algorithm",
     image: "/products/algo-breakout.svg",
@@ -61,7 +61,7 @@ export const products: Product[] = [
     name: "FALQ Scalp",
     description:
       "Kurzfristiger Scalping-Algorithmus für schnelle Setups. Kompakte Signale mit enger Risikosteuerung.",
-    priceCents: 9900,
+    priceCents: 239900,
     category: "Algorithmen",
     kind: "algorithm",
     image: "/products/algo-scalp.svg",
