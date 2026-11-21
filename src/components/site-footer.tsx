@@ -31,7 +31,11 @@ const channelLinks = [
     group: "Telegram",
     items: [
       { href: "https://t.me/", label: "Free", external: true },
-      { href: "/products/telegram-vip", label: "VIP", external: false },
+      {
+        href: "https://whop.com/falq/telegram-vip-access-b9",
+        label: "VIP",
+        external: true,
+      },
     ],
   },
 ] as const;

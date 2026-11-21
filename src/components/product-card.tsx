@@ -37,6 +37,7 @@ export function ProductCard({
   const accentIndex = generation - 1;
   const genLabel = `Gen ${generation}`;
   const soldOut = !product.inStock;
+  const purchaseUrl = product.purchaseUrl;
 
   function handleAddToCart() {
     if (soldOut) return;
@@ -100,16 +101,28 @@ export function ProductCard({
               {formatPrice(product.priceCents)}
             </p>
           </aside>
-          <SlideTextButton
-            as="button"
-            type="button"
-            text={soldOut ? "Sold out" : justAdded ? "Added" : "Kaufen"}
-            hoverText={soldOut ? "Sold out" : "Add to cart"}
-            animateIn={false}
-            disabled={soldOut}
-            onClick={handleAddToCart}
-            className="product-card__buy h-9 min-w-0 px-3.5 text-sm md:min-w-0"
-          />
+          {purchaseUrl && !soldOut ? (
+            <SlideTextButton
+              text="Kaufen"
+              hoverText="Zu Whop"
+              href={purchaseUrl}
+              animateIn={false}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="product-card__buy h-9 min-w-0 px-3.5 text-sm md:min-w-0"
+            />
+          ) : (
+            <SlideTextButton
+              as="button"
+              type="button"
+              text={soldOut ? "Sold out" : justAdded ? "Added" : "Kaufen"}
+              hoverText={soldOut ? "Sold out" : "Add to cart"}
+              animateIn={false}
+              disabled={soldOut}
+              onClick={handleAddToCart}
+              className="product-card__buy h-9 min-w-0 px-3.5 text-sm md:min-w-0"
+            />
+          )}
         </div>
       </div>
     </article>

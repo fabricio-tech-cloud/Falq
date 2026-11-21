@@ -117,6 +117,9 @@ export function ChannelsSection() {
   const discordVipHref =
     discordVip?.purchaseUrl ?? "/products/discord-vip";
   const discordVipExternal = Boolean(discordVip?.purchaseUrl);
+  const telegramVipHref =
+    telegramVip?.purchaseUrl ?? "/products/telegram-vip";
+  const telegramVipExternal = Boolean(telegramVip?.purchaseUrl);
 
   return (
     <section id="channels" className="panel-section" aria-label="Channels">
@@ -172,7 +175,8 @@ export function ChannelsSection() {
             />
             <ChannelActions
               freeHref={FREE_LINKS.telegram}
-              vipHref="/products/telegram-vip"
+              vipHref={telegramVipHref}
+              vipExternal={telegramVipExternal}
               variant="dark"
               placement="bar"
             />
@@ -186,7 +190,8 @@ export function ChannelsSection() {
               </p>
               <ChannelActions
                 freeHref={FREE_LINKS.telegram}
-                vipHref="/products/telegram-vip"
+                vipHref={telegramVipHref}
+                vipExternal={telegramVipExternal}
                 variant="dark"
                 placement="in-panel"
               />
