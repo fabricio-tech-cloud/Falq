@@ -2,3 +2,8 @@
 # https://opennext.js.org/cloudflare/caching#static-assets-caching
 /_next/static/*
   Cache-Control: public,max-age=31536000,immutable
+
+# Apple Pay / Stripe domain verification (exact path, no HTML, no auth)
+/.well-known/apple-developer-merchantid-domain-association
+  Content-Type: application/octet-stream
+  Cache-Control: public, max-age=0, must-revalidate
