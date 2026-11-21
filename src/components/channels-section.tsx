@@ -11,10 +11,12 @@ function ChannelBuyButton({
   href,
   variant,
   className,
+  external = false,
 }: {
   href: string;
   variant: "light" | "dark";
   className?: string;
+  external?: boolean;
 }) {
   return (
     <SlideTextButton
@@ -22,6 +24,9 @@ function ChannelBuyButton({
       hoverText="Zum Produkt"
       href={href}
       animateIn={false}
+      {...(external
+        ? { target: "_blank", rel: "noopener noreferrer" }
+        : {})}
       className={`content-panel__btn content-panel__btn--${variant} h-10 min-w-0 px-5 text-sm md:min-w-0 ${className ?? ""}`.trim()}
     />
   );
@@ -54,11 +59,13 @@ function ChannelActions({
   vipHref,
   variant,
   placement,
+  vipExternal = false,
 }: {
   freeHref: string;
   vipHref: string;
   variant: "light" | "dark";
   placement: "in-panel" | "bar";
+  vipExternal?: boolean;
 }) {
   const barVariant = placement === "bar" ? "dark" : variant;
 
@@ -67,7 +74,11 @@ function ChannelActions({
       className={`content-panel__actions content-panel__actions--${placement}`}
     >
       <ChannelFreeButton href={freeHref} variant={barVariant} />
-      <ChannelBuyButton href={vipHref} variant={barVariant} />
+      <ChannelBuyButton
+        href={vipHref}
+        variant={barVariant}
+        external={vipExternal}
+      />
     </div>
   );
 }
@@ -103,6 +114,9 @@ function ChannelPriceAside({
 export function ChannelsSection() {
   const discordVip = getProduct("discord-vip");
   const telegramVip = getProduct("telegram-vip");
+  const discordVipHref =
+    discordVip?.purchaseUrl ?? "/products/discord-vip";
+  const discordVipExternal = Boolean(discordVip?.purchaseUrl);
 
   return (
     <section id="channels" className="panel-section" aria-label="Channels">
@@ -126,7 +140,8 @@ export function ChannelsSection() {
               </p>
               <ChannelActions
                 freeHref={FREE_LINKS.discord}
-                vipHref="/products/discord-vip"
+                vipHref={discordVipHref}
+                vipExternal={discordVipExternal}
                 variant="light"
                 placement="in-panel"
               />
@@ -140,7 +155,8 @@ export function ChannelsSection() {
             />
             <ChannelActions
               freeHref={FREE_LINKS.discord}
-              vipHref="/products/discord-vip"
+              vipHref={discordVipHref}
+              vipExternal={discordVipExternal}
               variant="light"
               placement="bar"
             />

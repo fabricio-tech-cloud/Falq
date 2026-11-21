@@ -9,6 +9,8 @@ export type Product = {
   kind: ProductKind;
   image: string;
   inStock: boolean;
+  /** External checkout URL (e.g. Whop). When set, buy CTAs go here instead of the local cart. */
+  purchaseUrl?: string;
 };
 
 export type CartItem = {

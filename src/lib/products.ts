@@ -11,6 +11,7 @@ export const products: Product[] = [
     kind: "channel",
     image: "/products/discord-vip.svg",
     inStock: true,
+    purchaseUrl: "https://whop.com/falq/discord-vip-access-e2",
   },
   {
     id: "telegram-vip",

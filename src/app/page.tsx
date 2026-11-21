@@ -1,4 +1,5 @@
 import { ChannelsSection } from "@/components/channels-section";
+import { DiscordSauceSection } from "@/components/discord-sauce-section";
 import DotField from "@/components/kokonutui/dot-field";
 import SlideTextButton from "@/components/kokonutui/slide-text-button";
 
@@ -40,6 +41,7 @@ export default function HomePage() {
       </section>
 
       <ChannelsSection />
+      <DiscordSauceSection />
     </>
   );
 }

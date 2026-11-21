@@ -8,7 +8,11 @@ const siteLinks = [
   { href: "/cart", label: "Cart" },
   { href: "/checkout", label: "Checkout" },
   { href: "/#channels", label: "Channels" },
-  { href: "/products/discord-vip", label: "VIP" },
+  {
+    href: "https://whop.com/falq/discord-vip-access-e2",
+    label: "VIP",
+    external: true,
+  },
 ] as const;
 
 const channelLinks = [
@@ -16,7 +20,11 @@ const channelLinks = [
     group: "Discord",
     items: [
       { href: "https://discord.gg/", label: "Free", external: true },
-      { href: "/products/discord-vip", label: "VIP", external: false },
+      {
+        href: "https://whop.com/falq/discord-vip-access-e2",
+        label: "VIP",
+        external: true,
+      },
     ],
   },
   {
@@ -135,10 +143,22 @@ export function SiteFooter() {
             <ul className="site-footer__list">
               {siteLinks.map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href} className="site-footer__text-link">
-                    <span>{link.label}</span>
-                    <ArrowUpRightIcon />
-                  </Link>
+                  {"external" in link && link.external ? (
+                    <a
+                      href={link.href}
+                      className="site-footer__text-link"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <span>{link.label}</span>
+                      <ArrowUpRightIcon />
+                    </a>
+                  ) : (
+                    <Link href={link.href} className="site-footer__text-link">
+                      <span>{link.label}</span>
+                      <ArrowUpRightIcon />
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>

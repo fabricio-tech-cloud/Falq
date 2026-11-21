@@ -34,10 +34,26 @@ export default async function ProductPage({
           </p>
           {!product.inStock ? <p className="stock-out">Aktuell nicht verfügbar</p> : null}
           <div style={{ display: "flex", gap: "0.75rem", flexWrap: "wrap" }}>
-            <AddToCartButton productId={product.id} disabled={!product.inStock} />
-            <Link href="/cart" className="btn btn-secondary">
-              Zum Warenkorb
-            </Link>
+            {product.purchaseUrl ? (
+              <a
+                href={product.purchaseUrl}
+                className="btn btn-primary"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Kaufen
+              </a>
+            ) : (
+              <>
+                <AddToCartButton
+                  productId={product.id}
+                  disabled={!product.inStock}
+                />
+                <Link href="/cart" className="btn btn-secondary">
+                  Zum Warenkorb
+                </Link>
+              </>
+            )}
             <Link href="/products" className="btn btn-secondary">
               Alle Produkte
             </Link>

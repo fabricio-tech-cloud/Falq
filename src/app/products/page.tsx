@@ -1,5 +1,6 @@
 import { AlgorithmsCoverflow } from "@/components/algorithms-coverflow";
 import { ChannelsSection } from "@/components/channels-section";
+import { DiscordSauceSection } from "@/components/discord-sauce-section";
 import { ProductCard } from "@/components/product-card";
 import DotField from "@/components/kokonutui/dot-field";
 import { getProductsByKind } from "@/lib/products";
@@ -57,6 +58,7 @@ export default function ProductsPage() {
       </section>
 
       <ChannelsSection />
+      <DiscordSauceSection />
     </>
   );
 }

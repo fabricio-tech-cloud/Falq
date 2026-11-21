@@ -610,6 +610,193 @@ input {
   color: var(--ink) !important;
 }
 
+.sauce-section {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding: clamp(3rem, 7vw, 5.5rem) 0 clamp(2.5rem, 6vw, 4.5rem);
+  background: var(--bg);
+  overflow: clip;
+}
+
+.sauce-section__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: clamp(1.75rem, 4vw, 3.5rem);
+  align-items: end;
+  width: min(var(--section-max), calc(100% - (var(--section-gutter) * 2)));
+  margin-inline: auto;
+  box-sizing: border-box;
+}
+
+.sauce-section__intro {
+  display: grid;
+  gap: 0.85rem;
+  max-width: 34rem;
+  animation: rise 0.7s ease both;
+}
+
+.sauce-section__eyebrow {
+  margin: 0;
+  color: var(--accent);
+  font-family: var(--font-display);
+  font-size: clamp(0.72rem, 1.1vw, 0.82rem);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.sauce-section__title {
+  margin: 0;
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: clamp(3.4rem, 9vw, 6.5rem);
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+}
+
+.sauce-section__dot {
+  color: var(--accent);
+}
+
+.sauce-section__lead {
+  margin: 0;
+  max-width: 28rem;
+  color: color-mix(in srgb, var(--ink) 78%, transparent);
+  font-family: var(--font-body);
+  font-size: clamp(0.95rem, 1.6vw, 1.08rem);
+  line-height: 1.5;
+}
+
+.sauce-section__cta {
+  margin-top: 0.35rem;
+}
+
+.sauce-section__btn {
+  background: var(--gray-light) !important;
+  color: var(--accent) !important;
+}
+
+.sauce-section__btn:hover {
+  background: #fff !important;
+  color: var(--accent) !important;
+}
+
+.sauce-tracks {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0;
+  animation: rise 0.85s ease 0.08s both;
+}
+
+.sauce-tracks__item {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 1rem;
+  align-items: baseline;
+  padding: 1rem 0;
+  border-top: 1px solid color-mix(in srgb, var(--ink) 14%, transparent);
+  transition: border-color 0.25s ease, transform 0.25s ease;
+}
+
+.sauce-tracks__item:last-child {
+  border-bottom: 1px solid color-mix(in srgb, var(--ink) 14%, transparent);
+}
+
+.sauce-tracks__item:hover {
+  border-color: color-mix(in srgb, var(--accent) 45%, transparent);
+  transform: translateX(0.2rem);
+}
+
+.sauce-tracks__copy h3 {
+  margin: 0 0 0.2rem;
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+  letter-spacing: -0.02em;
+}
+
+.sauce-tracks__copy p {
+  margin: 0;
+  color: var(--muted);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.sauce-tracks__count {
+  color: var(--accent);
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.sauce-marquee {
+  margin-top: clamp(2rem, 5vw, 3.25rem);
+  border-block: 1px solid color-mix(in srgb, var(--ink) 12%, transparent);
+  background: var(--bg);
+  overflow: hidden;
+  mask-image: linear-gradient(
+    90deg,
+    transparent,
+    #000 8%,
+    #000 92%,
+    transparent
+  );
+}
+
+.sauce-marquee__track {
+  display: flex;
+  width: max-content;
+  gap: 0;
+  animation: sauce-marquee 42s linear infinite;
+}
+
+.sauce-marquee__item {
+  flex: 0 0 auto;
+  padding: 0.95rem 1.35rem;
+  color: color-mix(in srgb, var(--ink) 70%, transparent);
+  font-family: var(--font-display);
+  font-size: clamp(0.82rem, 1.3vw, 0.95rem);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.sauce-marquee__item::after {
+  content: "·";
+  margin-left: 1.35rem;
+  color: var(--accent);
+}
+
+@keyframes sauce-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sauce-section__intro,
+  .sauce-tracks {
+    animation: none;
+  }
+
+  .sauce-marquee__track {
+    animation: none;
+  }
+
+  .sauce-tracks__item:hover {
+    transform: none;
+  }
+}
+
 .shop-hero__content {
   align-items: flex-end;
   justify-content: flex-start;
@@ -1606,6 +1793,28 @@ input {
 
   .shop-hero__content h1 {
     font-size: clamp(3.4rem, 11vw, 5.75rem);
+  }
+
+  .sauce-section {
+    padding: 2.5rem 0 2.25rem;
+  }
+
+  .sauce-section__inner {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+    align-items: start;
+  }
+
+  .sauce-section__title {
+    font-size: clamp(3rem, 14vw, 4.5rem);
+  }
+
+  .sauce-tracks__item {
+    padding: 0.85rem 0;
+  }
+
+  .sauce-marquee {
+    margin-top: 1.75rem;
   }
 
   .panel-section {
